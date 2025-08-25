@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  width: 320px;
+  padding: 15px;
+  background-color: #f7f8fa;
+  color: #333;
+}
+
+h1 {
+  font-size: 18px;
+  font-weight: 500;
+  margin: 0 0 15px 0;
+  text-align: center;
+  color: #1a73e8;
+}
+
+.input-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+#group-name {
+  flex-grow: 1;
+  margin-right: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 8px;
+  font-size: 14px;
+}
+
+#group-name:focus {
+  outline: none;
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, 0.2);
+}
+
+#save-group {
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#save-group:hover {
+    background-color: #185abc;
+}
+
+#groups-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  transition: background-color 0.2s;
+}
+
+.group-item:hover {
+  background-color: #e9f1ff;
+}
+
+.group-info {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    flex-grow: 1;
+}
+
+.group-name {
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.tab-count {
+    font-size: 12px;
+    color: #5f6368;
+}
+
+.delete-group {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.delete-group svg {
+    width: 16px;
+    height: 16px;
+    fill: #5f6368;
+    transition: fill 0.2s;
+}
+
+.delete-group:hover svg {
+    fill: #d93025;
+}
+
+/* Notification styles */
+#notification {
+    text-align: center;
+    padding: 8px;
+    margin-top: 10px;
+    border-radius: 4px;
+    display: none; /* Hidden by default */
+    font-size: 13px;
+}
+
+#notification.success {
+    background-color: #e6f4ea;
+    color: #1e8e3e;
+}
+
+#notification.error {
+    background-color: #fce8e6;
+    color: #d93025;
+}
