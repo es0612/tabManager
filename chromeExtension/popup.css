@@ -1,12 +1,159 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 
 body {
-  font-family: 'Roboto', sans-serif;
-  width: 320px;
-  padding: 15px;
-  background-color: #f7f8fa;
-  color: #333;
+  font-family: sans-serif;
+  width: 350px;
+  padding: 10px;
 }
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  font-size: 18px;
+  margin-top: 0;
+  text-align: center;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+#group-name {
+  flex-grow: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+#save-group {
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: 1px solid #007bff;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+#groups-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.group-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.group-info {
+  flex-grow: 1;
+  cursor: pointer;
+}
+
+.group-name {
+  font-weight: bold;
+}
+
+.tab-count {
+  font-size: 12px;
+  color: #666;
+  margin-left: 10px;
+}
+
+.delete-group {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  width: 24px;
+  height: 24px;
+}
+
+.delete-group svg {
+  fill: #999;
+}
+.delete-group:hover svg {
+  fill: #f44336;
+}
+
+#notification {
+  display: none;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.error {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  width: 300px;
+  text-align: center;
+}
+
+.modal-content p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 16px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#confirm-yes {
+  background-color: #4CAF50; /* Green */
+  color: white;
+}
+
+#confirm-no {
+  background-color: #f44336; /* Red */
+  color: white;
+}
+
 
 h1 {
   font-size: 18px;

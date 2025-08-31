@@ -4,10 +4,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const groupsList = document.getElementById('groups-list');
   const notification = document.getElementById('notification');
 
+  // Modal elements
+  const confirmModal = document.getElementById('confirm-modal');
+  const confirmMessage = document.getElementById('confirm-message');
+  const confirmYesButton = document.getElementById('confirm-yes');
+  const confirmNoButton = document.getElementById('confirm-no');
+
+  let confirmCallback = null;
+
   const deleteIconSvg = `
     <svg viewBox="0 0 24 24">
       <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z"></path>
     </svg>`;
+
+  // --- Modal Logic ---
+  function showConfirmModal(message, onConfirm) {
+    confirmMessage.textContent = message;
+    confirmModal.style.display = 'flex';
+    confirmCallback = onConfirm;
+  }
+
+  function hideConfirmModal() {
+    confirmModal.style.display = 'none';
+    confirmCallback = null;
+  }
+
+  confirmYesButton.addEventListener('click', () => {
+    if (confirmCallback) {
+      confirmCallback();
+    }
+    hideConfirmModal();
+  });
+
+  confirmNoButton.addEventListener('click', () => {
+    hideConfirmModal();
+  });
+  // --- End of Modal Logic ---
+
 
   // Show notification message
   function showNotification(message, type = 'success') {
@@ -79,9 +112,9 @@ document.addEventListener('DOMContentLoaded', () => {
       // Check if group with the same name already exists
       chrome.storage.sync.get(groupName, (items) => {
         if (items[groupName]) {
-          if (confirm(`Group "${groupName}" already exists. Overwrite it?`)) {
+          showConfirmModal(`Group "${groupName}" already exists. Overwrite it?`, () => {
             saveGroup(groupName, urls);
-          } 
+          });
         } else {
           saveGroup(groupName, urls);
         }
@@ -101,12 +134,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Delete a group
   function deleteGroup(groupName) {
-    if (confirm(`Are you sure you want to delete the group "${groupName}"?`)) {
+    showConfirmModal(`Are you sure you want to delete the group "${groupName}"?`, () => {
       chrome.storage.sync.remove(groupName, () => {
         loadGroups();
         showNotification('Group deleted.', 'success');
       });
-    }
+    });
   }
 
   // Initial load
