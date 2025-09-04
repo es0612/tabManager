@@ -1,4 +1,4 @@
-# tabManager
+# Tab Group Manager
 
 A simple Chrome extension to manage your tabs.
 
