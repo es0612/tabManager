@@ -10,7 +10,7 @@ A simple Chrome extension to manage your tabs.
 
 ## Installation
 
-Install the extension from the [Chrome Web Store](https://chrome.google.com/webstore/category/extensions) (You should replace this with your extension's direct link).
+Install the extension from the [Chrome Web Store](https://chromewebstore.google.com/detail/kiidfjbakbjmjoppjjmmljpfbodfghfd?utm_source=item-share-cb) .
 
 ## For Developers
 
